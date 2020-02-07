@@ -26,11 +26,12 @@ def generate_marathi_link(search_keyword):
 def get_news(url):
     '''news_link = "https://news.google.com/news/rss"'''
     
-    page = urlopen(url)
-    xml_page = page.read()
+    page = urlopen(url)                         #open page
+    xml_page = page.read()             
     page.close()
 
     soup_page = soup(xml_page, "xml")
+    #extracting all data in map object
     news_list = map(
         lambda item: {'title': item.title.text, 'date': item.pubDate.text,'links': item.link.text}
         ,soup_page.findAll("item"))    
@@ -51,6 +52,7 @@ def hindi_news(request):
         search_word = 'world'    
     news = get_news(generate_hindi_link(search_word))
     return render(request,'hindi.html',{'news_list' : news,'keyword':search_word})
+
 def marathi_news(request):
     if 'search_word' in request.POST:
         search_word = request.POST['search_word']
