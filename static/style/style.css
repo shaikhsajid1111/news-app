@@ -3,6 +3,38 @@
 body{
     font-family: 'Mukta', sans-serif !important;    
 }
+.fa .fa-language{
+    font-size: 1.5em !important;
+}
+#social-media-container .fa{
+  
+  font-size: 1.8em;
+  width: 1.8em;
+  height: 50px;
+  padding: 2%;
+  text-decoration: none;
+  color: white;
+      
+    
+}
+#social-media-container .fa-instagram:hover{
+    color: #e4405f;
+}
+#social-media-container .fa-facebook:hover{
+    color: #3b5999;
+}
+#social-media-container .fa-twitter:hover{
+    color: #55acee;
+}
+#social-media-container .fa-github:hover{
+    color: #131418;
+}
+#social-media-container{
+    height: 10vh !important;
+}
+#toggle{
+    border-radius: 50%;
+}
 /*
 font-family: 'Poppins', sans-serif;
 font-family: 'Source Sans Pro', sans-serif;
