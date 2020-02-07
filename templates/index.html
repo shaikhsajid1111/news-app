@@ -28,8 +28,8 @@
                 <i class="fas fa-language text-white"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{% url 'hindi_news' %}">Hindi</a>
-                <a class="dropdown-item" href="{% url 'marathi_news' %}">Marathi</a>
+                <a class="dropdown-item" href="{% url 'hindi_news' %}">हिन्दी (भारत)</a>
+                <a class="dropdown-item" href="{% url 'marathi_news' %}">मराठी (भारत)</a>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </li>
@@ -37,7 +37,7 @@
           </ul>
           <form class="form-inline my-2 my-lg-0" method="POST">
               {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" name = "search_word" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" name = "search_word" placeholder="Search" aria-label="Search" required autocomplete="off">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -60,8 +60,9 @@
               
         </div>
           
-
 </div>
+{% empty %}
+        <h4 class="text-center">No results for {{ keyword }}</h4>
 {% endfor %}
 
 

@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta|Poppins|Source+Sans+Pro&display=swap');
+
 body{
-    background-color: #ffffff;
+    font-family: 'Mukta', sans-serif !important;    
 }
+/*
+font-family: 'Poppins', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Mukta', sans-serif;
+
+*/

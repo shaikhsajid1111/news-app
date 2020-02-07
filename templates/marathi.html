@@ -27,8 +27,8 @@
                 <i class="fas fa-language text-white"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{% url 'hindi_news' %}">Hindi</a>
-                <a class="dropdown-item" href="{% url 'english_news' %}">English</a>
+                <a class="dropdown-item" href="{% url 'hindi_news' %}">हिन्दी (भारत)</a>
+                <a class="dropdown-item" href="{% url 'english_news' %}">English(IN)</a>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
             </li>
@@ -36,7 +36,7 @@
           </ul>
           <form class="form-inline my-2 my-lg-0" method="POST">
               {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" name = "search_word" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" type="search" name = "search_word" placeholder="Search" aria-label="Search" required autocomplete="off">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -61,6 +61,8 @@
           
 
 </div>
+{% empty %}
+        <h4 class="text-center">साठी कोणतेही परिणाम नाहीत '{{ keyword }}'</h4>
 {% endfor %}
 
 
@@ -71,7 +73,7 @@
     <script src="{% static 'js/design.js' %}"></script>
 
 </body>
-<footer class="bg-dark">
+<footer class="bg-dark fixed-bottom">
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis accusamus ullam vitae quas, fuga, veritatis libero excepturi delectus quis deserunt mollitia laborum esse reiciendis nisi alias? Eum fuga ipsa libero?
 </footer>
 </html>
