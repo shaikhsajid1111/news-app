@@ -6,21 +6,33 @@ from urllib.request import urlopen
 
 def generate_link(search_keyword):
     #https://news.google.com/rss/search?cf=all&hl=en-IN&q= 
-    link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=en&q='
-    search_keyword = search_keyword.replace(" ","+")
-    link = link_part_1+search_keyword+'&output=rss'    
-    return link
+    try:
+        link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=en&q='
+        search_keyword = search_keyword.replace(" ","+")
+        link = link_part_1+search_keyword+'&output=rss'
+        return link    
+    except:
+        link = "https://news.google.com/?hl=en-IN&gl=IN&ceid=IN:en"
+        return link
 
 def generate_hindi_link(search_keyword):
-    link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=hi&q='
-    search_keyword = search_keyword.replace(" ","+")
-    link = link_part_1+search_keyword+'&gl=IN&ceid=IN:hi'    
-    return link
+    try:
+        link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=hi&q='
+        search_keyword = search_keyword.replace(" ","+")
+        link = link_part_1+search_keyword+'&gl=IN&ceid=IN:hi'    
+        return link
+    except:
+        link = "https://news.google.com/?hl=en-IN&gl=IN&ceid=IN:en"
+        return link
 def generate_marathi_link(search_keyword):
-    link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=mr&q='
-    search_keyword = search_keyword.replace(" ","+")
-    link = link_part_1+search_keyword+'&gl=IN&ceid=IN:mr'    
-    return link
+    try:
+        link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=mr&q='
+        search_keyword = search_keyword.replace(" ","+")
+        link = link_part_1+search_keyword+'&gl=IN&ceid=IN:mr'    
+        return link
+    except:
+        link = "https://news.google.com/?hl=en-IN&gl=IN&ceid=IN:en"
+        return link
     #https://news.google.com/rss/search?cf=all&hl=mr&q=news&gl=IN&ceid=IN:mr
 
 def get_news(url):
@@ -39,7 +51,7 @@ def get_news(url):
 
 def index(request):
     if 'search_word' in request.POST:
-        search_word = request.POST['search_word']
+        search_word = str(request.POST['search_word'])
     else:
         search_word = 'world'    
     news = get_news(generate_link(search_word))
@@ -60,3 +72,4 @@ def marathi_news(request):
         search_word = 'world'    
     news = get_news(generate_marathi_link(search_word))
     return render(request,'marathi.html',{'news_list' : news,'keyword':search_word})
+  

@@ -43,7 +43,7 @@
           
           <form class="form-inline my-2 my-lg-0" method="POST">
               {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" name = "search_word" placeholder="Search" aria-label="Search" required autocomplete="off">
+            <input class="form-control mr-sm-2" type="search" id="search_word" name = "search_word" placeholder="Search" aria-label="Search" required autocomplete="off">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -79,11 +79,15 @@
     <a class="text-center fa fa-twitter" href="https://www.twitter.com/shaikhsajid1111" target="_blank"> </a>
     <a class="text-center fa fa-facebook" href="https://www.facebook.com/shaikhsajid1111" target="_blank"> </a>
     <a class="text-center fa fa-github" href="https://www.github.com/shaikhsajid1111" target="_blank"> </a>
+  
   </div>
 
 </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     {% load static %}
@@ -91,5 +95,10 @@
 
 </body>
 
+<footer>
+  <div class="footer-copyright text-center py-2 bg-dark text-white fixed-bottom">© 2020 Copyright:
+    <a href="https://www.instagram.com/shaikhsajid1111" class="text-white" target="_blank"> @Shaikh Sajid</a>
+  </div>
+</footer>
 
 </html>

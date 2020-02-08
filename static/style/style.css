@@ -2,6 +2,7 @@
 
 body{
     font-family: 'Mukta', sans-serif !important;    
+    height: 100% !important;
 }
 .fa .fa-language{
     font-size: 1.5em !important;
@@ -30,10 +31,14 @@ body{
     color: #131418;
 }
 #social-media-container{
-    height: 10vh !important;
+    height: 18vh !important;
 }
-#toggle{
-    border-radius: 50%;
+footer div{
+    opacity: .6 !important;
+
+}
+footer div:hover{
+    opacity: 1 !important;
 }
 /*
 font-family: 'Poppins', sans-serif;

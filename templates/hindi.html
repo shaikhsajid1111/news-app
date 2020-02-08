@@ -30,7 +30,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="{% url 'marathi_news' %}">मराठी (भारत)</a>
                 <a class="dropdown-item" href="{% url 'english_news' %}">English(IN)</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                
               </div>
             </li>
             <li class="nav-item">
@@ -39,7 +39,7 @@
           </ul>
           <form class="form-inline my-2 my-lg-0" method="POST">
               {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" name = "search_word" placeholder="Search" aria-label="Search" required autocomplete="off">
+            <input class="form-control mr-sm-2" type="search" id="search_word" name = "search_word" placeholder="Search" aria-label="Search" required autocomplete="off">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
@@ -69,7 +69,7 @@
         <h4 class="text-center">'{{ keyword }}' के लिए कोई परिणाम नहीं </h4>
         {% endfor %}
 
-        <div class="bg-dark fixed-bottom text-center" id="social-media-container">
+<div class="bg-dark fixed-bottom text-center" id="social-media-container">
 
           <div class="container">
         
@@ -78,7 +78,7 @@
             <a class="text-center fa fa-facebook" href="https://www.facebook.com/shaikhsajid1111" target="_blank"> </a>
             <a class="text-center fa fa-github" href="https://www.github.com/shaikhsajid1111" target="_blank"> </a>
           </div>
-        
+            
         </div>
 
 
@@ -91,4 +91,11 @@
     <script src="{% static 'js/design.js' %}"></script>
 
 </body>
+
+<footer>
+  <div class="footer-copyright text-center py-2 bg-dark text-white fixed-bottom">© 2020 Copyright:
+    <a href="https://www.instagram.com/shaikhsajid1111" class="text-white" target="_blank"> @Shaikh Sajid</a>
+  </div>
+</footer>
+
 </html>
