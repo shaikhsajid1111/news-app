@@ -4,10 +4,13 @@ import bs4
 from bs4 import BeautifulSoup as soup
 from urllib.request import urlopen
 
+from googletrans import Translator      #for translating keyword to english if input is given in other lang
+
 def generate_link(search_keyword):
     #https://news.google.com/rss/search?cf=all&hl=en-IN&q= 
     try:
         link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=en&q='
+        search_keyword = search_keyword.replace("#","@")
         search_keyword = search_keyword.replace(" ","+")
         link = link_part_1+search_keyword+'&output=rss'
         return link    
@@ -18,6 +21,7 @@ def generate_link(search_keyword):
 def generate_hindi_link(search_keyword):
     try:
         link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=hi&q='
+        search_keyword = search_keyword.replace("#","@")
         search_keyword = search_keyword.replace(" ","+")
         link = link_part_1+search_keyword+'&gl=IN&ceid=IN:hi'    
         return link
@@ -27,6 +31,7 @@ def generate_hindi_link(search_keyword):
 def generate_marathi_link(search_keyword):
     try:
         link_part_1 = 'https://news.google.com/news/feeds?cf=all&ned=in&hl=mr&q='
+        search_keyword = search_keyword.replace("#","@")
         search_keyword = search_keyword.replace(" ","+")
         link = link_part_1+search_keyword+'&gl=IN&ceid=IN:mr'    
         return link
@@ -38,7 +43,7 @@ def generate_marathi_link(search_keyword):
 def get_news(url):
     '''news_link = "https://news.google.com/news/rss"'''
     
-    page = urlopen(url)                         #open page
+    page = urlopen(url)                         #open webpage
     xml_page = page.read()             
     page.close()
 
@@ -51,7 +56,13 @@ def get_news(url):
 
 def index(request):
     if 'search_word' in request.POST:
-        search_word = str(request.POST['search_word'])
+        search_word = request.POST['search_word']
+        #now translating if keyword is from different language
+        translator = Translator()
+        r_lang = translator.detect(search_word)
+        if r_lang.lang != 'en':
+            l = translator.translate(search_word)
+            search_word = l.text
     else:
         search_word = 'world'    
     news = get_news(generate_link(search_word))
@@ -60,6 +71,12 @@ def index(request):
 def hindi_news(request):
     if 'search_word' in request.POST:
         search_word = request.POST['search_word']
+        #now translating if keyword is from different language
+        translator = Translator()       #translator object
+        r_lang = translator.detect(search_word)         #detecting language of the search keyword
+        if r_lang.lang != 'en':             #if language is not english
+            l = translator.translate(search_word)   #translate keyword to english
+            search_word = l.text            #replacing content of search word with translated word
     else:
         search_word = 'world'    
     news = get_news(generate_hindi_link(search_word))
@@ -68,8 +85,14 @@ def hindi_news(request):
 def marathi_news(request):
     if 'search_word' in request.POST:
         search_word = request.POST['search_word']
+        #now translating if keyword is from different language
+        translator = Translator()
+        r_lang = translator.detect(search_word)
+        if r_lang.lang != 'en':
+            l = translator.translate(search_word)
+            search_word = l.text
     else:
-        search_word = 'world'    
-    news = get_news(generate_marathi_link(search_word))
+        search_word = 'world'    #bt default, it shows worlds news
+    news = get_news(generate_marathi_link(search_word))    #generating news from the above function
     return render(request,'marathi.html',{'news_list' : news,'keyword':search_word})
   
