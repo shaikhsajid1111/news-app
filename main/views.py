@@ -54,15 +54,19 @@ def get_news(url):
         ,soup_page.findAll("item"))    
     return news_list    
 
+def change_language(keyword):
+    translator = Translator()       #translator object
+    r_lang = translator.detect(keyword)             #detect the lkeyword language
+    if r_lang.lang != 'en':             #if language is not english
+        translated_sentence = translator.translate(keyword)   #translate keyword to english
+        keyword = translated_sentence.text
+    return keyword    
+
 def index(request):
     if 'search_word' in request.POST:
         search_word = request.POST['search_word']
         #now translating if keyword is from different language
-        translator = Translator()
-        r_lang = translator.detect(search_word)
-        if r_lang.lang != 'en':
-            l = translator.translate(search_word)
-            search_word = l.text
+        search_word = change_language(search_word)
     else:
         search_word = 'world'    
     news = get_news(generate_link(search_word))
@@ -72,11 +76,7 @@ def hindi_news(request):
     if 'search_word' in request.POST:
         search_word = request.POST['search_word']
         #now translating if keyword is from different language
-        translator = Translator()       #translator object
-        r_lang = translator.detect(search_word)         #detecting language of the search keyword
-        if r_lang.lang != 'en':             #if language is not english
-            l = translator.translate(search_word)   #translate keyword to english
-            search_word = l.text            #replacing content of search word with translated word
+        search_word = change_language(search_word)        #replacing content of search word with translated word
     else:
         search_word = 'world'    
     news = get_news(generate_hindi_link(search_word))
@@ -86,11 +86,7 @@ def marathi_news(request):
     if 'search_word' in request.POST:
         search_word = request.POST['search_word']
         #now translating if keyword is from different language
-        translator = Translator()
-        r_lang = translator.detect(search_word)
-        if r_lang.lang != 'en':
-            l = translator.translate(search_word)
-            search_word = l.text
+        search_word = change_language(search_word)
     else:
         search_word = 'world'    #bt default, it shows worlds news
     news = get_news(generate_marathi_link(search_word))    #generating news from the above function

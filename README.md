@@ -6,11 +6,41 @@ News App Using Django
 
 # Features
 - Gets you latest news
+
+
+[Screenshot](screenshots/screen1.PNG)
+
+
 - It supports multiple languages which includes hindi and marathi apart from english
+
+
+
+[Hindi Language](screenshots/hindi.PNG)
+
+
+
+
+[Marathi Language](screenshots/marathi.PNG)
+
+
 - It gives you option to search quickly and go through your favuorite topic easily
 - It support multiple languages for search, that means even if you enter portuguese keyword in search bar, it would give you result in translation
 
+
+[Translate](screenshots/translate.PNG)
+
+
+
+
+
 # Technologies
+
+# Screenshots
+
+
+
+
+
 
 
 
