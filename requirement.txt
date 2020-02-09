@@ -5,3 +5,7 @@ googletrans==2.4.0
 lxml==4.5.0
 requests==2.22.0
 urllib3==1.25.7
+
+
+
+[requests 2.22.0](https://pypi.org/project/requests/)
