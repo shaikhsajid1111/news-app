@@ -35,8 +35,6 @@ News App Using Django
 
 # Technologies
 
-# Screenshots
-
 
 
 
