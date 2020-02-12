@@ -1,5 +1,5 @@
 # NEWS APP
-News App Using Django
+**News App Using Django**
 
 # About
 > This is a news web app, fetches all the latest news headlines, and shows output as a list of news and provides link for the same headline.
@@ -23,7 +23,7 @@ News App Using Django
 ![Marathi Language](screenshots/marathi.PNG)
 
 
-- It gives you option to search quickly and go through your favuorite topic easily
+- It gives you option to search quickly and go through your favourite topic easily
 - It support multiple languages for search, that means even if you enter portuguese keyword in search bar, it would give you result in translation
 
 
