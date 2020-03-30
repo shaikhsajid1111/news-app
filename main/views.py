@@ -63,8 +63,8 @@ def change_language(keyword):
     return keyword    
 
 def index(request):
-    if 'search_word' in request.POST:
-        search_word = request.POST['search_word']
+    if 'search_word' in request.GET:
+        search_word = request.GET['search_word']
         #now translating if keyword is from different language
         search_word = change_language(search_word)
     else:
@@ -73,8 +73,8 @@ def index(request):
     return render(request,'index.html',{'news_list' : news,'keyword':search_word})
 
 def hindi_news(request):
-    if 'search_word' in request.POST:
-        search_word = request.POST['search_word']
+    if 'search_word' in request.GET:
+        search_word = request.GET['search_word']
         #now translating if keyword is from different language
         search_word = change_language(search_word)        #replacing content of search word with translated word
     else:
@@ -83,8 +83,8 @@ def hindi_news(request):
     return render(request,'hindi.html',{'news_list' : news,'keyword':search_word})
 
 def marathi_news(request):
-    if 'search_word' in request.POST:
-        search_word = request.POST['search_word']
+    if 'search_word' in request.GET:
+        search_word = request.GET['search_word']
         #now translating if keyword is from different language
         search_word = change_language(search_word)
     else:

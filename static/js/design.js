@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $('#social-media-container').hide();                /*By default, enter task panel is hidden */
     $('#toggle').click(function(){
@@ -6,6 +5,3 @@ $(document).ready(function(){
     });
 /*ends here*/
 });
-
-
-
